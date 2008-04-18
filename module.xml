@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.openpanel.opencore.module>
+	<name>Domain.module</name>
+	<uuid>6b9733bb-52ac-48c8-9fec-8051ac6fc6fc</uuid>
+	<version>1.0</version>
+	<requires>Networking.module</requires>
+	<languages en_EN=""/>
+	<implementation>
+		<apitype>commandline</apitype>
+		<getconfig>false</getconfig>
+	</implementation>
+	<classes>
+		<class id="Domain">
+			<uuid>78c10b86-2250-4327-9978-0470fb41ad0c</uuid>
+			<version>1</version>
+			<indexing>manual</indexing>
+			<uniquein>class</uniquein>
+			<childrendep>Domain:Alias</childrendep>
+			<shortname>domain</shortname>
+			<title>Domain</title>
+			<description>A collection of domain-related services</description>
+			<sortindex>20</sortindex>
+			<icon>domain.png</icon>
+			<capabilities create="true" delete="true" update="true"/>
+			<parameters>
+				<p id="id" required="true" visible="true" enabled="true" type="string" regexp="[:domain:]">Domain name</p>
+			</parameters>
+		</class>
+		<class id="Domain:Alias">
+			<uuid>660fecfd-bde5-4358-ac62-20dcbbf3b207</uuid>
+			<version>1</version>
+			<requires>Domain</requires>
+			<indexing>manual</indexing>
+			<uniquein>class</uniquein>
+			<uniqueclass>Domain</uniqueclass>
+			<shortname>alias</shortname>
+			<title>Alias</title>
+			<description>A secondary aliased domain</description>
+			<explanation>alias.html</explanation>
+			<sortindex>25</sortindex>
+			<capabilities create="true" delete="true" update="true"/>
+			<parameters>
+				<p id="id" enabled="true" visible="true" required="true" type="string" gridwidth="100" regexp="[:domain:]">Alias domain name</p>
+			</parameters>
+		</class>
+	</classes>
+</com.openpanel.opencore.module>

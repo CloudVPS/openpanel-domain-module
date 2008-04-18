@@ -1,0 +1,50 @@
+# ============================================================================
+# OpenPanel Domain.module
+# Copyright (C) 2008 PanelSix V.O.F.
+# ============================================================================
+module Domain					< uuid 6b9733bb-52ac-48c8-9fec-8051ac6fc6fc
+								< version 1.0
+								< requires Networking.module
+								< languages en_EN
+								< apitype commandline
+
+
+# ============================================================================
+# CLASSES
+# ============================================================================
+class Domain					< uuid 78c10b86-2250-4327-9978-0470fb41ad0c
+								< version 1
+								< indexing manual
+								< uniquein class
+								< childrendep Domain:Alias
+								< shortname domain
+								< title Domain
+								< description A collection of domain-related services
+								< sortindex 20
+								< icon domain.png
+								
+								< capabilities create delete update
+								
+	string id					: Domain name
+								< flags required visible enabled
+								< regexp [:domain:]
+
+
+# ----------------------------------------------------------------------------
+class Domain:Alias				< uuid 660fecfd-bde5-4358-ac62-20dcbbf3b207
+								< version 1
+								< requires Domain
+								< indexing manual
+								< uniquein class
+								< uniqueclass Domain
+								< shortname alias
+								< title Alias
+								< description A secondary aliased domain
+								< explanation alias.html
+								< sortindex 25
+								
+								< capabilities create delete update
+
+	string id					: Alias domain name
+								< gridwidth 100
+								< regexp [:domain:]
