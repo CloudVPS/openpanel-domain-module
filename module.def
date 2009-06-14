@@ -7,6 +7,9 @@ module Domain					< uuid 6b9733bb-52ac-48c8-9fec-8051ac6fc6fc
 								< requires Networking.module
 								< languages en_EN
 								< apitype commandline
+								< license GPL2
+								< author OpenPanel V.O.F.
+								< url http://www.openpanel.com/
 
 
 # ============================================================================
