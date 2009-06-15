@@ -3,6 +3,9 @@
 	<name>Domain.module</name>
 	<uuid>6b9733bb-52ac-48c8-9fec-8051ac6fc6fc</uuid>
 	<version>1.0</version>
+	<license>GPL2</license>
+	<author>OpenPanel V.O.F.</author>
+	<url>http://www.openpanel.com/</url>
 	<requires>Networking.module</requires>
 	<languages en_EN=""/>
 	<implementation>
@@ -21,6 +24,7 @@
 			<description>A collection of domain-related services</description>
 			<sortindex>20</sortindex>
 			<icon>domain.png</icon>
+			<hasprototype>true</hasprototype>
 			<capabilities create="true" delete="true" update="true"/>
 			<parameters>
 				<p id="id" required="true" visible="true" enabled="true" type="string" regexp="[:domain:]">Domain name</p>
