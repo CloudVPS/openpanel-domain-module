@@ -32,6 +32,7 @@ class Domain					< uuid 78c10b86-2250-4327-9978-0470fb41ad0c
 	string id					: Domain name
 								< flags required visible enabled
 								< regexp [:domain:]
+								< example example.net
 
 
 # ----------------------------------------------------------------------------
@@ -52,3 +53,5 @@ class Domain:Alias				< uuid 660fecfd-bde5-4358-ac62-20dcbbf3b207
 	string id					: Alias domain name
 								< gridwidth 100
 								< regexp [:domain:]
+								< example aliasdomain.com
+
