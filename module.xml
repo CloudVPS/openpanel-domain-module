@@ -27,7 +27,7 @@
 			<hasprototype>true</hasprototype>
 			<capabilities create="true" delete="true" update="true"/>
 			<parameters>
-				<p id="id" required="true" visible="true" enabled="true" type="string" regexp="[:domain:]">Domain name</p>
+				<p id="id" required="true" visible="true" enabled="true" type="string" regexp="[:domain:]" example="example.net">Domain name</p>
 			</parameters>
 		</class>
 		<class id="Domain:Alias">
@@ -40,11 +40,12 @@
 			<shortname>alias</shortname>
 			<title>Alias</title>
 			<description>A secondary aliased domain</description>
+			<emptytext>No aliases configured for this domain</emptytext>
 			<explanation>alias.html</explanation>
 			<sortindex>25</sortindex>
 			<capabilities create="true" delete="true" update="true"/>
 			<parameters>
-				<p id="id" enabled="true" visible="true" required="true" type="string" gridwidth="100" regexp="[:domain:]">Alias domain name</p>
+				<p id="id" enabled="true" visible="true" required="true" type="string" gridwidth="100" regexp="[:domain:]" example="aliasdomain.com">Alias domain name</p>
 			</parameters>
 		</class>
 	</classes>
