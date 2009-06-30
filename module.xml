@@ -27,7 +27,7 @@
 			<hasprototype>true</hasprototype>
 			<capabilities create="true" delete="true" update="true"/>
 			<parameters>
-				<p id="id" required="true" visible="true" enabled="true" type="string" regexp="[:domain:]" example="example.net">Domain name</p>
+				<p id="id" enabled="true" visible="true" required="true" type="string" regexp="[:domain:]" example="example.net">Domain name</p>
 			</parameters>
 		</class>
 		<class id="Domain:Alias">

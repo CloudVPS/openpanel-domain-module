@@ -30,7 +30,6 @@ class Domain					< uuid 78c10b86-2250-4327-9978-0470fb41ad0c
 								< capabilities create delete update
 								
 	string id					: Domain name
-								< flags required visible enabled
 								< regexp [:domain:]
 								< example example.net
 
