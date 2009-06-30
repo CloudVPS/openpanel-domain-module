@@ -42,7 +42,7 @@
 			<description>A secondary aliased domain</description>
 			<emptytext>No aliases configured for this domain</emptytext>
 			<explanation>alias.html</explanation>
-			<sortindex>25</sortindex>
+			<sortindex>500</sortindex>
 			<capabilities create="true" delete="true" update="true"/>
 			<parameters>
 				<p id="id" enabled="true" visible="true" required="true" type="string" gridwidth="100" regexp="[:domain:]" example="aliasdomain.com">Alias domain name</p>
