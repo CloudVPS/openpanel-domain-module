@@ -27,7 +27,7 @@ class Domain					< uuid 78c10b86-2250-4327-9978-0470fb41ad0c
 								< icon domain.png
 								< hasprototype true
 								
-								< capabilities create delete update
+								< capabilities create delete
 								
 	string id					: Domain name
 								< regexp [:domain:]
