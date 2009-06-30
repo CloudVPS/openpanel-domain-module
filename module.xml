@@ -25,7 +25,7 @@
 			<sortindex>20</sortindex>
 			<icon>domain.png</icon>
 			<hasprototype>true</hasprototype>
-			<capabilities create="true" delete="true" update="true"/>
+			<capabilities create="true" delete="true"/>
 			<parameters>
 				<p id="id" enabled="true" visible="true" required="true" type="string" regexp="[:domain:]" example="example.net">Domain name</p>
 			</parameters>
