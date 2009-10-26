@@ -1,19 +1,18 @@
 #!/usr/bin/make -f
 
-
-BUILD_ROOT=$(CURDIR)/debian/tmp
 install:
-trm -rf ${BUILD_ROOT}
-tmkdir -p ${BUILD_ROOT}/var/opencore/modules/Domain.module
-tinstall -m 755 action ${BUILD_ROOT}/var/opencore/modules/Domain.module/action
-tcp module.xml *.html *.png ${BUILD_ROOT}/var/opencore/modules/Domain.module/
-tinstall -m 755 verify ${BUILD_ROOT}/var/opencore/modules/Domain.module/verify
+	dh_testdir
+	dh_testroot
+	dh_installdirs
+	install -m 755 action debian/openpanel-mod-domain/var/opencore/modules/Domain.module/action
+	cp module.xml *.html *.png debian/openpanel-mod-domain/var/opencore/modules/Domain.module/
+	install -m 755 verify debian/openpanel-mod-domain/var/opencore/modules/Domain.module/verify
 
 build:
-binary-indep:
 
-binary-arch binary: build install
-	if [ -d debian/tmp ] ; then dh_install -a --sourcedir=debian/tmp ; fi
+binary-indep: build install
+
+binary-arch: build install
 	dh_installdocs -a
 	dh_installdeb -a
 	dh_compress -a
@@ -22,5 +21,7 @@ binary-arch binary: build install
 	dh_gencontrol -a
 	dh_md5sums -a
 	dh_builddeb -a
+
+binary: binary-indep binary-arch
 
 .PHONY: build binary binary-arch binary-indep clean install
