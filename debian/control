@@ -7,6 +7,6 @@ Standards-Version: 3.7.2
 
 Package: openpanel-mod-domain
 Architecture: any
-Depends: , openpanel-core (>= 0.8.3), openpanel-mod-user
+Depends: openpanel-core (>= 0.8.3), openpanel-mod-user
 Description: Domain node
  Openpanel domain node
