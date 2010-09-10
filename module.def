@@ -4,7 +4,6 @@
 # ============================================================================
 module Domain					< uuid 6b9733bb-52ac-48c8-9fec-8051ac6fc6fc
 								< version 1.0
-								< requires Networking.module
 								< languages en_EN
 								< apitype commandline
 								< license GPL2
