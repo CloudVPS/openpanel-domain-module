@@ -1,6 +1,12 @@
 # ============================================================================
-# OpenPanel Domain.module
-# Copyright (C) 2008 PanelSix V.O.F.
+# This file is part of OpenPanel - The Open Source Control Panel
+# OpenPanel is free software: you can redistribute it and/or modify it 
+# under the terms of the GNU General Public License as published by the Free 
+# Software Foundation, using version 3 of the License.
+#
+# Please note that use of the OpenPanel trademark may be subject to additional 
+# restrictions. For more information, please visit the Legal Information 
+# section of the OpenPanel website on http://www.openpanel.com/
 # ============================================================================
 module Domain					< uuid 6b9733bb-52ac-48c8-9fec-8051ac6fc6fc
 								< version 1.0
