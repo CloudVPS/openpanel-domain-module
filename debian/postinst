@@ -28,8 +28,8 @@ set -e
 
 case "$1" in
     configure)
-        mkdir -p /var/opencore/conf/staging/Domain
-        chown opencore:authd /var/opencore/conf/staging/Domain
+        mkdir -p /var/openpanel/conf/staging/Domain
+        chown openpanel-core:openpanel-authd /var/openpanel/conf/staging/Domain
 
     ;;
 

@@ -38,14 +38,14 @@ BUILD_ROOT=$RPM_BUILD_ROOT
 %install
 BUILD_ROOT=$RPM_BUILD_ROOT
 rm -rf ${BUILD_ROOT}
-mkdir -p ${BUILD_ROOT}/var/opencore/modules/Domain.module
-install -m 755 action ${BUILD_ROOT}/var/opencore/modules/Domain.module/action
-cp module.xml *.html *.png ${BUILD_ROOT}/var/opencore/modules/Domain.module/
-install -m 755 verify ${BUILD_ROOT}/var/opencore/modules/Domain.module/verify
+mkdir -p ${BUILD_ROOT}/var/openpanel/modules/Domain.module
+install -m 755 action ${BUILD_ROOT}/var/openpanel/modules/Domain.module/action
+cp module.xml *.html *.png ${BUILD_ROOT}/var/openpanel/modules/Domain.module/
+install -m 755 verify ${BUILD_ROOT}/var/openpanel/modules/Domain.module/verify
 
 %post
-mkdir -p /var/opencore/conf/staging/Domain
-chown opencore:authd /var/opencore/conf/staging/Domain
+mkdir -p /var/openpanel/conf/staging/Domain
+chown openpanel-core:openpanel-authd /var/openpanel/conf/staging/Domain
 
 %files
 %defattr(-,root,root)
