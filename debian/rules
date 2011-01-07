@@ -14,6 +14,7 @@ install:
 	dh_installdirs
 	install -m 755 action debian/openpanel-mod-domain/var/openpanel/modules/Domain.module/action
 	cp module.xml *.html *.png debian/openpanel-mod-domain/var/openpanel/modules/Domain.module/
+	cp tests/test.py debian/openpanel-mod-domain/var/openpanel/modules/Domain.module/tests
 	install -m 755 verify debian/openpanel-mod-domain/var/openpanel/modules/Domain.module/verify
 
 build:
