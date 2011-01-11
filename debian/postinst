@@ -30,7 +30,6 @@ case "$1" in
     configure)
         mkdir -p /var/openpanel/conf/staging/Domain
         chown openpanel-core:openpanel-authd /var/openpanel/conf/staging/Domain
-		invoke-rc.d openpanel-core reload
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
