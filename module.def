@@ -13,7 +13,7 @@ module Domain					< uuid 6b9733bb-52ac-48c8-9fec-8051ac6fc6fc
 								< languages en_EN
 								< apitype commandline
 								< license GPL3
-								< author OpenPanel V.O.F.
+								< author OpenPanel
 								< url http://www.openpanel.com/
 
 
