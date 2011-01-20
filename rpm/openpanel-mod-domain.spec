@@ -1,52 +1,59 @@
-# This file is part of OpenPanel - The Open Source Control Panel
-# OpenPanel is free software: you can redistribute it and/or modify it 
-# under the terms of the GNU General Public License as published by the Free 
-# Software Foundation, using version 3 of the License.
-#
-# Please note that use of the OpenPanel trademark may be subject to additional 
-# restrictions. For more information, please visit the Legal Information 
-# section of the OpenPanel website on http://www.openpanel.com/
+%define 	modname	Domain
 
-%define version 0.9.2
-
-%define libpath /usr/lib
-%ifarch x86_64
-  %define libpath /usr/lib64
-%endif
-
-Summary: Domain node
-Name: openpanel-mod-domain
-Version: %version
-Release: 1
-License: GPLv3
-Group: Development
-Source: http://packages.openpanel.com/archive/openpanel-mod-domain-%{version}.tar.gz
-BuildRoot: /var/tmp/%{name}-buildroot
-Requires: openpanel-core >= 0.8.3
-Requires: openpanel-mod-user
+Name: 		openpanel-mod-domain
+Version: 	1.0
+Release: 	1%{?dist}
+Summary:  	OpenPanel module to manage DNS and domains
+License: 	GPLv3
+Group: 		Applications/Internet
+Source: 	%{name}-%{version}.tar.bz2
+Requires:	openpanel-core
+Requires: 	bind >= 9.3
+BuildRequires:	openpanel-core-devel
+BuildRequires:	grace-devel
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 %description
-Domain node
-Openpanel domain node
+OpenPanel module to manage DNS and domains
 
 %prep
-%setup -q -n openpanel-mod-domain-%version
+%setup -q -n %{modname}.module
+# nothing to configure
 
 %build
-BUILD_ROOT=$RPM_BUILD_ROOT
 
 %install
-BUILD_ROOT=$RPM_BUILD_ROOT
-rm -rf ${BUILD_ROOT}
-mkdir -p ${BUILD_ROOT}/var/openpanel/modules/Domain.module
-install -m 755 action ${BUILD_ROOT}/var/openpanel/modules/Domain.module/action
-cp module.xml *.html *.png ${BUILD_ROOT}/var/openpanel/modules/Domain.module/
-install -m 755 verify ${BUILD_ROOT}/var/openpanel/modules/Domain.module/verify
+rm -rf %{buildroot}
+mkdir -p %{buildroot}/%{_localstatedir}/openpanel/conf/staging/%{modname}
+mkdir -p %{buildroot}/%{_localstatedir}/openpanel/modules/%{modname}.module/
+cp -a *.png *.html *.def %{buildroot}/%{_localstatedir}/openpanel/modules/%{modname}.module/
+cp -a action verify %{buildroot}/%{_localstatedir}/openpanel/modules/%{modname}.module/
 
-%post
-mkdir -p /var/openpanel/conf/staging/Domain
-chown openpanel-core:openpanel-authd /var/openpanel/conf/staging/Domain
+
+%clean
+rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root)
-/
+%dir %attr(-,openpanel-core, openpanel-authd) %{_localstatedir}/openpanel/conf/staging/%{modname}
+%attr(-,openpanel-core, openpanel-authd) %{_localstatedir}/openpanel/modules/%{modname}.module
+
+%post
+/sbin/service openpaneld condrestart /dev/null 2>&1
+
+%preun
+if [ $1 = 0 ]; then
+	service openpaneld stop >/dev/null 2>&1
+fi
+
+%postun
+if [ $1 = 0 ]; then
+	service openpaneld start >/dev/null 2>&1
+fi
+if [ "$1" = "1" ]; then
+	service openpaneld condrestart >/dev/null 2>&1
+fi
+
+%changelog
+* Wed Jan 18 2011 Igmar Palsenberg <igmar@palsenberg.com>
+- Initial packaging
