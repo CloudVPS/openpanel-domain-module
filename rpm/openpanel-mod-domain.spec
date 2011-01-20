@@ -26,7 +26,8 @@ OpenPanel module to manage DNS and domains
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/%{_localstatedir}/openpanel/conf/staging/%{modname}
 mkdir -p %{buildroot}/%{_localstatedir}/openpanel/modules/%{modname}.module/
-cp -a *.png *.html *.def %{buildroot}/%{_localstatedir}/openpanel/modules/%{modname}.module/
+mkmodulexml < module.def > module.xml >/dev/null 2>&1 || :
+cp -a *.png *.html *.def *.xml %{buildroot}/%{_localstatedir}/openpanel/modules/%{modname}.module/
 cp -a action verify %{buildroot}/%{_localstatedir}/openpanel/modules/%{modname}.module/
 
 
